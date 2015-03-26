@@ -1,0 +1,26 @@
+package com.example.mainactivity;
+
+public class CursorThread extends Thread {
+	private boolean running = false;;
+	Upgrades forRefresh = new Upgrades();
+	
+	public CursorThread() {
+//		super();
+		running = true;
+	}
+	
+	@Override
+	public void run() {
+		while(true) {
+			try{
+				//Add a cookie according to CPS, so it will add one every second/cps
+				Thread.sleep(1000);//(long)Cursor.cps);
+
+				Upgrades.cookieCount += Cursor.cps * Cursor.numberOfCursors;
+				//forRefresh.refreshCookies(v);
+			} catch (InterruptedException e) {
+				//Do Nothing
+			}
+		}
+	}
+}

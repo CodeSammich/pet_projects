@@ -1,0 +1,63 @@
+package com.example.mainactivity;
+
+import android.app.Activity;
+
+public class CursorThread extends Thread {
+	
+	private boolean running = false;
+	Upgrades forRefresh = new Upgrades();
+	Activity activity;
+	public CursorThread(Activity activity) {
+//		super();
+		running = true;
+		this.activity = activity;
+	}
+	
+	@Override
+	public void run() {
+		//change true to running
+		
+		while(running) {
+			try{
+				//Add a cookie according to CPS, so it will add one every second/cps
+				Thread.sleep(1000);//(long)Cursor.cps);
+
+				Upgrades.cookieCount += Cursor.cps * Cursor.numberOfCursors;
+				MainActivity.count += Cursor.cps * Cursor.numberOfCursors;
+				//forRefresh.refreshCookies(v);
+			} catch (InterruptedException e) {
+				//Do Nothing
+			}
+			
+			try {
+				activity.runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						((Upgrades) activity).refreshCookies();
+						
+					}
+					
+				});
+			} catch (Exception e) {
+				
+			}
+		
+			
+		}
+	}
+	
+	public int switchActivity(Activity activity) {
+		try {
+			 MainActivity act =(MainActivity) activity;
+			 return 0;
+		} catch (Exception e) {
+			return 1;
+		}
+	}
+
+	public void setRunning(boolean b) {
+		this.running = b;
+		
+	}
+}

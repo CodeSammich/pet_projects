@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+/home/samuelzhang3/Documents/Android/Samuel Z-Monday, Aug 04/Cookie Clicker/Java/.metadata/.plugins/org.eclipse.jdt.core
+1117077317.index
+3927879410.index
+3703194086.index
+765453901.index
+1270315800.index

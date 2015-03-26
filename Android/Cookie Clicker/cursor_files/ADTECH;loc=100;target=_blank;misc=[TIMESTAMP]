@@ -1,0 +1,4 @@
+document.write("<scr"+"ipt type=\"text/javascript\" src=\"http://liftium.wikia.com/js/hop.js\">\n");
+document.write("</scr"+"ipt>\n");
+
+

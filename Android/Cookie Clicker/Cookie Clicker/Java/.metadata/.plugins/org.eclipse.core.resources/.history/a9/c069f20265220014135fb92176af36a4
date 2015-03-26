@@ -1,0 +1,120 @@
+package com.example.mainactivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+//@SuppressWarnings("all")
+
+public class Upgrades extends ActionBarActivity {
+
+	static int cookieCount;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_upgrades);
+
+		Intent intent = getIntent();
+		cookieCount = intent.getIntExtra("cookie_count", 0);
+
+		// Number of Cookies in Upgrade Screen
+		TextView numCookies = (TextView) findViewById(R.id.cookieCount);
+		numCookies.setText("" + cookieCount);
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.upgrades, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	// Back to Main Screen
+	public void toWar(View view) {
+		Intent i = new Intent(Upgrades.this, MainActivity.class);
+		i.putExtra("cookie_count", cookieCount);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+	}
+
+	// Update Number of Cookies on Army Screen
+	public void refreshCookies(View v) {
+		TextView numCookies = (TextView) findViewById(R.id.cookieCount);
+		numCookies.setText("Cookies: " + cookieCount);
+	}
+
+	// //Different Upgrades (Cursors, Grandma's, etc...)
+	// Creates Cursor
+	public void makeCursor(View view) {
+		if (cookieCount >= Cursor.BASE_COST) {
+			Cursor.numberOfCursors++;
+			cookieCount -= Cursor.BASE_COST;
+			Cursor.BASE_COST += (Cursor.SCALE_COST * Cursor.BASE_COST);
+			refreshCookies(view);
+
+			// Update Number of Cursors on Screen
+			TextView numOfCursorsOnScreen = (TextView) findViewById(R.id.numCursors);
+			numOfCursorsOnScreen.setText("Cursors: " + Cursor.numberOfCursors);
+		}
+	}
+
+	// Creates Grandma
+	public void makeGrandma(View view) {
+		if (cookieCount >= Grandma.BASE_COST) {
+			Grandma.numberOfGrandmas++;
+			cookieCount -= Grandma.BASE_COST;
+			Grandma.BASE_COST += (Grandma.SCALE_COST * Grandma.BASE_COST);
+			refreshCookies(view);
+
+			// Update Number of Grandmas - Screen
+			TextView numOfGrandmasOnScreen = (TextView) findViewById(R.id.numGrandmas);
+			numOfGrandmasOnScreen.setText("Grandmas: "
+					+ Grandma.numberOfGrandmas);
+		}
+	}
+
+	public void makeFarm(View view) {
+		if (cookieCount >= Farm.BASE_COST) {
+			Farm.numberOfFarms++;
+			cookieCount -= Farm.BASE_COST;
+			Farm.BASE_COST += (Farm.SCALE_COST * Farm.BASE_COST);
+			refreshCookies(view);
+
+			// Update Number of Farms - Screen
+			TextView numOfFarmsOnScreen = (TextView) findViewById(R.id.numFarms);
+			numOfFarmsOnScreen.setText("Farms: " + Farm.numberOfFarms);
+		}
+	}
+
+	// Creates Farms
+	public void makeFactory(View view) {
+		if (cookieCount >= Farm.BASE_COST) {
+			Factory.numberOfFactories++;
+			cookieCount -= Factory.BASE_COST;
+			Factory.BASE_COST += (Factory.SCALE_COST * Factory.BASE_COST);
+			refreshCookies(view);
+
+			// Update Number of Farms - Screen
+			TextView numOfFactoriesOnScreen = (TextView) findViewById(R.id.numFactories);
+			numOfFactoriesOnScreen.setText("Factories: " + Factory.numberOfFactories);
+		}
+	}
+}

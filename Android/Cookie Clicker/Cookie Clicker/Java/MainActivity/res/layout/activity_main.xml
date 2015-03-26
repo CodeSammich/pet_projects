@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="all" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Cookies: 0" />
+
+    <ImageButton
+        android:id="@+id/theCookie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="buttonClicked"
+        android:src="@drawable/perfectcookie" />
+
+    <Button
+        android:id="@+id/restart"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/theCookie"
+        android:onClick="restartButton"
+        android:scaleType="centerInside"
+        android:text="Invite the Locusts" />
+
+    <Button
+        android:id="@+id/upgrades"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/theCookie"
+        android:layout_toRightOf="@id/restart"
+        android:onClick="armyScreen"
+        android:scaleType="centerInside"
+        android:text="Armory" />
+
+</RelativeLayout>

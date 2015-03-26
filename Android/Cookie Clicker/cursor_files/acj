@@ -1,0 +1,25 @@
+OX_581157128({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"http://us-ads.openx.net/{medium}/1.0/{rtype}?ts={txn_state}",
+    "pixels":"http://us-u.openx.net/w/1.0/pd?plm=5&ph=94ef58655625200a8cfc5b15afcd0b94ad52d590",
+    "adunits" : [
+      {
+        "auid":"537110216",
+        "chain":[
+          {
+            "is_fallback":1,
+            "ad_id":"0",
+            "width":"728",
+            "height":"90",
+            "html":"<script>parent.postMessage('{\"AdEngine\":{\"status\":\"hop\"}}', '*');</script>",
+            "target":"_blank",
+            "ts":"1fHJpZD04ZTIzMjY5ZS1hYWM2LTQyNjctODZkYi01Mzg0ZTExOTA3N2Z8cnQ9MTQwNzUyNDM5OHxhdWlkPTUzNzExMDIxNnxhdW09RE1JRC5XRUJ8c2lkPTUzNzA4NDEwNnxwdWI9NTM3MDc3MzU2fHBjPVVTRHxyYWlkPTdjYTM4OWVjLTYxYzUtNDIxYS1iYmRmLTgxNDJkNzc1NjBlMXx1cj1POU02Ym1NYjdB",
+            "type":"html",
+            "ad_url":"<script>parent.postMessage('{\"AdEngine\":{\"status\":\"hop\"}}', '*');</script>"
+          }
+        ]
+      }
+    ]
+  }
+});

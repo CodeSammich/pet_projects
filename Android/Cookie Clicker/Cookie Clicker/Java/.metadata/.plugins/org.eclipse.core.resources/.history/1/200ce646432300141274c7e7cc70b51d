@@ -1,0 +1,66 @@
+package com.example.mainactivity;
+
+public class CursorThread extends Thread {
+	private boolean running = false;
+	Upgrades forRefresh = new Upgrades();
+	
+	public CursorThread() {
+//		super();
+		running = true;
+	}
+	
+	@Override
+	public void run() {
+		//==================IVAN COMMENT=========================
+		
+		//Change true to running!  We made it for a reason!
+		
+		// Also, make a BIG if else statement that checks which activity the thread is running in using 
+		// the testActivity(activity) method described below.
+		
+		// If it's in the MainActivity then we can upgrade the cookie count in the main activity.
+		// If it's in the upgrades class then we can upgrade the one in the upgrade activity.
+		
+		// This is done so that we can create a new thread in each activity and it'll all be good!
+		
+		//==================END IVAN COMMENT=====================
+		while(true) {
+			try{
+				//Add a cookie according to CPS, so it will add one every second/cps
+				Thread.sleep(1000);//(long)Cursor.cps);
+
+				Upgrades.cookieCount += Cursor.cps * Cursor.numberOfCursors;
+				//forRefresh.refreshCookies(v);
+			} catch (InterruptedException e) {
+				//Do Nothing
+			}
+			//==================IVAN COMMENT==========================
+			
+			//This is where you will add the ability to update the text in the TextViews.
+			//make sure that you are updating the appropriate text depending on which activity loop you're in!
+			
+			//You will use  activity.runOnUiThread(new Runnable() {
+			//		 @Override
+			//		 public void run() {
+			//		 -----update code goes here------
+			//		}});
+			
+			//This is used because we need to specify that the thread that is updating is the thread containing
+			// the textview - also known as the UI thread.
+			
+			//
+			//==================END IVAN COMMENT=====================
+			
+		}
+	}
+	
+	//==================IVAN COMMENT=========================
+	
+	//Create the methods:
+	// 1. public void setRunning(boolean b) so that it sets running to b;
+	// 2. public int testActivity(activity) so that the following happens:
+	//		a. it takes in the activity passed in the above constructor and tests whether it's a MainActivity
+	// 			or an Upgrades Activity.
+	
+	//==================END IVAN COMMENT=====================
+}

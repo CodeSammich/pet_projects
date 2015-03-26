@@ -1,0 +1,25 @@
+OX_7602617856({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"http://us-ads.openx.net/{medium}/1.0/{rtype}?ts={txn_state}",
+    "pixels":"http://us-u.openx.net/w/1.0/pd?plm=5&ph=94ef58655625200a8cfc5b15afcd0b94ad52d590",
+    "adunits" : [
+      {
+        "auid":"330275",
+        "chain":[
+          {
+            "is_fallback":0,
+            "ad_id":"751963",
+            "width":"728",
+            "height":"90",
+            "html":"<script type=\"text/javascript\" src=\"http://liftium.wikia.com/js/hop.js\"></script>",
+            "target":"_blank",
+            "ts":"1fHJpZD1lNzViODgzYS04ZGYyLTRlZGMtYjJjZC1iN2U0ZGYzODVmMmZ8cnQ9MTQwNzUyNDM5OXxhdWlkPTMzMDI3NXxhdW09RE1JRC5XRUJ8c2lkPTcwMjQwfHB1Yj0xODg2OHxwYz1VU0R8cmFpZD05OGVjMDVmMS1lOGEyLTQyZDUtOTllNi1lOTM4YTY1NTczNDN8YWlkPTc1MTk2M3x0PTR8YXM9NzI4eDkwfGxpZD00Mjk0NjR8b2lkPTEyMzI1MXxwPTEwNTB8cHI9MTA1MHxhZHY9MTg4Njl8YWM9VVNEfHBtPVBSSUNJTkcuQ1BNfGJtPUJVWUlORy5IT1VTRXx1cj1LZEgzSUszSUEz",
+            "type":"html",
+            "ad_url":"<script type=\"text/javascript\" src=\"http://liftium.wikia.com/js/hop.js\"></script>"
+          }
+        ]
+      }
+    ]
+  }
+});

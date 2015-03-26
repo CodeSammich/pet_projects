@@ -1,0 +1,136 @@
+package com.example.mainactivity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+public class MainActivity extends ActionBarActivity {
+	static double count;
+	
+	CursorThread cursorThread;
+
+//	double cps = ((Cursor.numberOfCursors * Cursor.cps) 
+//			+ (Grandma.numberOfGrandmas * Grandma.cps) + 
+//			(Farm.numberOfFarms * Farm.cps) +
+//			(Factory.numberOfFactories * Factory.cps));
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		// Score Save
+		SharedPreferences sharedPref = this
+				.getPreferences(Context.MODE_PRIVATE);
+		int savedCount = sharedPref.getInt("Saved Count", 0);
+		count = savedCount;
+
+		// Restart Button
+		TextView restart = (TextView) findViewById(R.id.restart);
+		restart.setText("Invite Locusts");
+
+		//Sync Score between Main and Upgrades Screen
+		Intent intent = getIntent();
+		count = intent.getDoubleExtra("cookie_count", count);
+
+		//Sync Number of Upgrades
+		Intent cursors = getIntent();
+		
+		///////THREADS!!
+		cursorThread = new CursorThread(this); 
+		cursorThread.start();
+		
+		//Prevent Negatives
+		if(count <0) {
+			count = 0;
+		}
+		
+		//Display Number of Cookies
+		TextView textView = (TextView) findViewById(R.id.textView);
+		textView.setText("Cookies: " + count);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	// Cookie Button
+	public void buttonClicked(View view) {
+		// If Cookie is clicked
+		count+= 1;
+		TextView textView = (TextView) findViewById(R.id.textView);
+		textView.setText("Cookies: " + count);
+
+		SharedPreferences sharedPref = this
+				.getPreferences(Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putInt("Saved Count", (int) count);
+		editor.commit();
+	}
+
+	// Restart Button
+	public void restartButton(View v) {
+		// Restart Button Clicked
+		count = 0;
+
+		// Saves Number of Cookies
+		SharedPreferences sharedPref = this
+				.getPreferences(Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putInt("Saved Count", (int) count);
+		editor.commit();
+
+		TextView textView = (TextView) findViewById(R.id.textView);
+		textView.setText("Cookies: " + count);
+
+		// Reset Number of Cursors/Cost
+		Cursor.numberOfCursors = 0;
+		Cursor.BASE_COST = 15;
+		Grandma.numberOfGrandmas = 0;
+		Grandma.BASE_COST = 100;
+		Farm.numberOfFarms = 0;
+		Farm.BASE_COST = 500;
+		Factory.numberOfFactories = 0;
+		Factory.BASE_COST = 3000;
+	}
+
+	// Army Screen (Upgrades)
+	public void armyScreen(View v) {
+		// Sends Number of Cookies to Army Screen
+		Intent i = new Intent(MainActivity.this, Upgrades.class);
+
+		//Sends Number of Upgrades/Cookies
+		i.putExtra("cookie_count", count);
+		i.putExtra("number_Cursors", Cursor.numberOfCursors);
+		cursorThread.setRunning(false);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+	}
+
+	public void refreshCookies() {
+		
+		TextView textView = (TextView) findViewById(R.id.textView);
+		textView.setText("Cookies: " + count);
+	}
+}

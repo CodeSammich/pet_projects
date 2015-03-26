@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=":.LinearLayoutActivity" >
+ 
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:hint="Textfield One" />
+ 
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:hint="Textfield Two" />
+ 
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:hint="Textfield Three" />
+</LinearLayout>

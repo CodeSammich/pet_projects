@@ -1,0 +1,18 @@
+public class test {
+	public static void main(String[] args) {
+		waffleType name = 
+		System.out.println("Hello, World");
+		System.out.println("I have ");
+		
+	}
+}
+
+public class waffleType {
+	public static string {
+		String name
+		int numOfWaffles
+		for numOfWaffles < 5 {
+			numOfWaffles += 1;
+		}
+	}
+}

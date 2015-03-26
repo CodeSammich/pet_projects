@@ -1,0 +1,3 @@
+Version 1: Pac-Man Animation/Creation Done
+           Spaceship Animation Done
+           Initialization of Walls/Borders/Dots - Unclickable

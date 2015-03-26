@@ -1,0 +1,185 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mainactivity.Upgrades"
+    tools:ignore="all" >
+
+    <!-- Top Text -->
+
+    <TextView
+        android:id="@+id/cookieArmy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Grow your Cookie Army!" />
+
+    <!-- Cookie Count on Top -->
+
+    <TextView
+        android:id="@+id/cookieCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cookieArmy"
+        android:layout_centerHorizontal="true"
+        android:text="Cookies: 0" />
+
+    <TextView
+        android:id="@+id/cpsExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cookieCount"
+        android:layout_centerHorizontal="true"
+        android:text="CPS = Cookies Per Second" />
+    
+    <!-- Cursor -->
+
+    <ImageButton
+        android:id="@+id/Cursor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cpsExplain"
+        android:layout_alignParentLeft="true"
+        android:onClick="makeCursor"
+        android:src="@drawable/cursor" />
+
+    <TextView
+        android:id="@+id/numCursors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Cursor"
+        android:text="Cursors: 0" />
+
+    <TextView
+        android:id="@+id/cursorExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numCursors"
+        android:text="0.1 CPS" />
+    
+    <TextView
+        android:id="@+id/cursorNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cursorExplain"
+        android:text="15 Cookies"/>
+
+    <!-- Grandma -->
+
+    <ImageButton
+        android:id="@+id/Grandma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cpsExplain"
+        android:layout_toRightOf="@id/Cursor"
+        android:onClick="makeGrandma"
+        android:src="@drawable/grandmaicon" />
+
+    <TextView
+        android:id="@+id/numGrandmas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Grandma"
+        android:layout_toRightOf="@id/Cursor"
+        android:text="Grandmas: 0" />
+
+    <TextView
+        android:id="@+id/grandmaExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numGrandmas"
+        android:layout_toRightOf="@id/Cursor"
+        android:text="0.5 CPS" />
+    
+    <TextView
+        android:id="@+id/grandmaNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grandmaExplain"
+        android:layout_toRightOf="@id/Cursor"
+        android:text="100 Cookies"/>
+
+
+    <!-- Farm -->
+
+    <ImageButton
+        android:id="@+id/Farm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cursorNeeded"
+        android:layout_toLeftOf="@id/Grandma"
+        android:onClick="makeFarm"
+        android:src="@drawable/farmicon" />
+
+    <TextView
+        android:id="@+id/numFarms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Farm"
+        android:text="Farms: 0" />
+
+    <TextView
+        android:id="@+id/farmExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numFarms"
+        android:text="4 CPS" />
+
+    <TextView
+        android:id="@+id/farmNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/farmExplain"
+        android:text="500 Cookies"/>
+
+    <!-- Factory -->
+
+    <ImageButton
+        android:id="@+id/Factory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grandmaNeeded"
+        android:layout_toRightOf="@id/Farm"
+        android:onClick="makeFactory"
+        android:src="@drawable/factoryicon" />
+
+    <TextView
+        android:id="@+id/numFactories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Factory"
+        android:layout_toRightOf="@id/Farm"
+        android:text="Factories: 0" />
+
+    <TextView
+        android:id="@+id/factoryExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numFactories"
+        android:layout_toRightOf="@id/Farm"
+        android:text="10 CPS" />
+    
+    <TextView
+        android:id="@+id/factoryNeeded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/factoryExplain"
+        android:layout_toRightOf="@id/Farm"
+        android:text="3000 Cookies" />
+    
+    <!-- Back to Main Screen -->
+
+    <Button
+        android:id="@+id/toMainScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Factory"
+        android:layout_toRightOf="@id/numFactories"
+        android:onClick="toWar"
+        android:text="War!" />
+
+</RelativeLayout>
