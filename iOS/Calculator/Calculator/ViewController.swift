@@ -12,19 +12,23 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     
-    var typingNum: Bool = false //In the middle of typing a number
+    var isTyping = false //In the middle of typing a number
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         
-        if typingNum {
+        if isTyping {
             display.text = display.text! + digit
         } else {
             display.text = digit
-            typingNum = true
+            isTyping = true
         }
     }
     
+    var operandStack = Array<Double>()
     
+    @IBAction func enter() {
+        isTyping = false
+    }
 }
 
