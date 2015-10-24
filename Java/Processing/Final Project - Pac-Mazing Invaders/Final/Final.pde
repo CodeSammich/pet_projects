@@ -10,7 +10,7 @@ PacMan Bob;
 //Always have sizex/sizey ratio be 4/3
 
 //Sizex MUST BE ABOVE 500 and BELOW 2000 for smooth gameplay. Recommended: 1000
-int sizex = 1000;
+int sizex = 1200;
 int sizey = 3*sizex/4;
 PImage img;
 
@@ -46,7 +46,7 @@ int playY;
 int screenTimer;
 
 void setup() {
-  size(sizex, sizey);
+  size(1000, 750);
   screen=0;
 
   //Health
@@ -587,4 +587,3 @@ void keyPressed() {
   }
 
 }
-
