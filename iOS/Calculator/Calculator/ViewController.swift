@@ -29,6 +29,18 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         isTyping = false
+        operandStack.append(displayValue)
+        print("operandStack = \(operandStack)")
+    }
+    
+    var displayValue: Double {
+        get{
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        }
+        set{
+            display.text = "\(newValue)"
+            isTyping = false
+        }
     }
 }
 
