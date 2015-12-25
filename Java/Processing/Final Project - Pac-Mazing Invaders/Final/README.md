@@ -2,6 +2,8 @@
 
 ###About
 
+![Pac-Mazing Invaders] (https://cstuy.org/static/programs/ship/assets/pacinvaders.png)
+
 Original mix of Pac-Man, Space Invaders, and a classic maze game.
 
 Written in Processing: https://processing.org/
