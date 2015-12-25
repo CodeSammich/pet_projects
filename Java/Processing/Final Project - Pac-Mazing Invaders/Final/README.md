@@ -13,5 +13,7 @@ Developed as the final project at the launch session of *SHIP*, a program of *CS
 #####Contributors
 
 Samuel Zhang
+
 Ryan A. Roque
+
 Margaret Burkart
